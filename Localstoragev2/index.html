@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Productos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #2d1b69 !important; /* Dark purple background */
+        }
+        .btn-export-pdf {
+            background-color: #dc3545 !important; /* Red color for PDF button */
+            border-color: #dc3545 !important;
+        }
+        .btn-export-pdf:hover {
+            background-color: #bb2d3b !important;
+            border-color: #b02a37 !important;
+        }
+    </style>
+</head>
+
+<body class="p-4 text-white">
+    <h1 class="text-center mb-4">Productos</h1>
+
+    <form id="productForm" class="row g-3 mb-4">
+        <input type="hidden" id="productId">
+        <div class="col-md-3">
+            <input type="text" id="producto" class="form-control" placeholder="Producto" required>
+        </div>
+        <div class="col-md-2">
+            <input type="number" id="precio" class="form-control" placeholder="Precio" required>
+        </div>
+        <div class="col-md-3">
+            <input type="text" id="descripcion" class="form-control" placeholder="Descripción" required>
+        </div>
+        <div class="col-md-2">
+            <input type="url" id="imagen" class="form-control" placeholder="URL Imagen" required>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Guardar</button>
+        </div>
+    </form>
+
+    <div class="mb-3">
+        <input type="text" id="search" class="form-control" placeholder="Buscar producto...">
+    </div>
+
+    <table class="table table-bordered table-striped" id="tablaProductos">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <button class="btn btn-success mt-3 btn-export-pdf" onclick="exportarPDF()">Exportar PDF</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="localStorage.js"></script>
+</body>
+
+</html>
